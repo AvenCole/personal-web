@@ -53,6 +53,20 @@ const drawGrid = () => {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  const gradient = ctx.createRadialGradient(
+    canvas.width / 2,
+    canvas.height / 2,
+    0,
+    canvas.width / 2,
+    canvas.height / 2,
+    Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
+  );
+  gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
+  gradient.addColorStop(1, '#0b0b0b');
+
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
   const startX = Math.floor(gridOffset.value.x / props.squareSize) * props.squareSize;
   const startY = Math.floor(gridOffset.value.y / props.squareSize) * props.squareSize;
 
@@ -74,20 +88,6 @@ const drawGrid = () => {
       ctx.strokeRect(squareX, squareY, props.squareSize, props.squareSize);
     }
   }
-
-  const gradient = ctx.createRadialGradient(
-    canvas.width / 2,
-    canvas.height / 2,
-    0,
-    canvas.width / 2,
-    canvas.height / 2,
-    Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
-  );
-  gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
-  gradient.addColorStop(1, '#0b0b0b');
-
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
 };
 
 const updateAnimation = () => {
