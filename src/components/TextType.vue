@@ -57,7 +57,7 @@ const getRandomSpeed = () => {
 };
 
 const getCurrentTextColor = () => {
-  if (!props.textColors.length) return '#ffffff';
+  if (!props.textColors.length) return undefined;
   return props.textColors[currentTextIndex.value % props.textColors.length];
 };
 
@@ -156,7 +156,7 @@ onBeforeUnmount(() => {
 <template>
   <component :is="as" ref="containerRef" :class="`inline-block whitespace-pre-wrap tracking-tight ${className}`"
     v-bind="$attrs">
-    <span class="inline" :style="{ color: getCurrentTextColor() }">
+    <span class="inline" :style="getCurrentTextColor() ? { color: getCurrentTextColor() } : undefined">
       {{ displayedText }}
     </span>
     <span v-if="showCursor" ref="cursorRef" :class="`ml-1 inline-block opacity-100 ${hideCursorWhileTyping && (currentCharIndex < textArray[currentTextIndex].length || isDeleting) ? 'hidden' : ''

@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -129,13 +129,41 @@
 html {
   color-scheme: light dark;
 }
+
 html.dark {
   color-scheme: dark;
 }
+
 html.light {
   color-scheme: light;
 }
 
-.theme-transition > * {
+.theme-transition>* {
   @apply transition-colors duration-2000;
+}
+
+/* Webkit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: color-mix(in oklab, var(--background) 92%, var(--foreground) 8%);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--foreground) 24%, var(--background) 76%);
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--background) 90%, var(--foreground) 10%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--foreground) 34%, var(--background) 66%);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--foreground) 28%, var(--background) 72%) color-mix(in oklab, var(--background) 92%, var(--foreground) 8%);
 }
