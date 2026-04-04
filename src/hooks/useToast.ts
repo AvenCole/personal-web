@@ -15,7 +15,7 @@ function buildOptions(
   return {
     title: options?.title ?? defaultTitle,
     message,
-    position: options?.position ?? 'topRight',
+    position: options?.position ?? 'bottomRight',
     timeout: options?.timeout ?? 3000,
   };
 }

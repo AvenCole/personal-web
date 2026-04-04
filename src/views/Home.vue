@@ -1,43 +1,38 @@
 <template>
-  <div class="relative w-full h-screen bg-black">
-    <div class="w-full h-full relative">
-      <Squares direction="diagonal" :speed="0.4" :squareSize="40" borderColor="#333333" hoverFillColor="#27ff64" />
-    </div>
+  <div class="flex min-h-[calc(100vh-80px)] w-full items-start justify-center px-4 pt-10 pb-12 sm:px-6 lg:px-8">
+    <div class="w-full max-w-2xl">
+      <section class="space-y-5 text-black transition-colors duration-2000 dark:text-white">
+        <p class="text-sm uppercase tracking-[0.3em] text-neutral-500 dark:text-neutral-400">About me</p>
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Aven Cole</h1>
+        <p class="text-base leading-8 text-neutral-700 dark:text-neutral-300">
+          I’m building a personal space on the web to document ideas, explore design-driven frontend work,
+          and keep learning through code.
+        </p>
+        <p class="text-base leading-8 text-neutral-700 dark:text-neutral-300">
+          This site is where I share what I’m making, what I’m studying, and the small experiments that help
+          me grow as a developer.
+        </p>
+      </section>
 
-    <div
-      class="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 pointer-events-none gap-3">
-      <TrueFocus sentence="Aven Cole" :manualMode="false" :blurAmount="5" borderColor="green" :animationDuration="2"
-        :pauseBetweenAnimations="1" />
+      <section class="mt-10 space-y-5 transition-colors duration-2000 sm:mt-14">
+        <h2 class="text-2xl font-medium text-gray-800 dark:text-neutral-200">What I’m focused on</h2>
 
+        <div class="grid gap-4 sm:grid-cols-2">
+          <article class="rounded-2xl border border-black/10 bg-white/70 p-5 backdrop-blur-sm transition-colors duration-2000 dark:border-white/10 dark:bg-white/5">
+            <h3 class="text-base font-semibold text-black dark:text-white">Frontend craft</h3>
+            <p class="mt-2 text-sm leading-7 text-neutral-700 dark:text-neutral-300">
+              Building interfaces that feel clean, responsive, and intentional across motion, layout, and detail.
+            </p>
+          </article>
 
-      <TextType class="text-lg md:text-2xl text-gray-400 mt-4" :text="[
-        'To see without eyes',
-        'To build beyond boundaries',
-        'To create through code'
-      ]" :typingSpeed="75" :pauseDuration="1500" :showCursor="true" />
-
-      <div class="flex gap-4 mt-6 pointer-events-auto">
-        <button
-          class="px-8 py-3 rounded-full bg-white text-black font-medium cursor-pointer hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl"
-          @click="router.push('/about')">
-          ABOUT
-        </button>
-        <button
-          class="px-8 py-3 rounded-full border border-white/30 text-white font-medium cursor-pointer hover:border-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
-          @click="router.push('/contact')">
-          CONTACT
-        </button>
-      </div>
+          <article class="rounded-2xl border border-black/10 bg-white/70 p-5 backdrop-blur-sm transition-colors duration-2000 dark:border-white/10 dark:bg-white/5">
+            <h3 class="text-base font-semibold text-black dark:text-white">Continuous learning</h3>
+            <p class="mt-2 text-sm leading-7 text-neutral-700 dark:text-neutral-300">
+              Using personal projects to practice better structure, stronger UI decisions, and sharper engineering habits.
+            </p>
+          </article>
+        </div>
+      </section>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { useRouter } from 'vue-router'
-
-import TextType from '@/components/TextType.vue';
-import Squares from '@/components/Squares.vue';
-import TrueFocus from '@/components/TrueFocus.vue';
-
-const router = useRouter()
-</script>
