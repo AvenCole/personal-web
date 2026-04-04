@@ -20,7 +20,7 @@
             <a @click="() => toast.info('Coming soon', { title: 'Coming soon', position: 'topCenter' })">Courses</a>
           </li>
           <li>
-            <a @click="() => toast.info('Coming soon', { title: 'Coming soon', position: 'topCenter' })">Contact Me</a>
+            <RouterLink to="/contact">Contact</RouterLink>
           </li>
         </ul>
       </div>
