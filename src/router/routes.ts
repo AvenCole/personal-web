@@ -7,6 +7,11 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('../views/Home.vue'),
   },
   {
+    path: '/tech-stacks',
+    name: 'TechStacks',
+    component: () => import('../views/TechStacks.vue'),
+  },
+  {
     path: '/contact',
     name: 'Contact',
     component: () => import('../views/Contact.vue'),

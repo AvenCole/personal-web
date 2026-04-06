@@ -23,7 +23,7 @@
 
         <Icon icon="material-symbols:code"
           class="text-blue-500 dark:text-blue-200 text-4xl opacity-70 group-hover:text-orange-500 transition-opacity"
-          @click="() => toast.info('Coming soon', { title: 'Coming soon' })" />
+          @click="() => router.push('/tech-stacks')" />
       </div>
     </DockIcon>
     <DockSeparator />

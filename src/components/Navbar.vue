@@ -14,7 +14,7 @@
             <RouterLink to="/">Home</RouterLink>
           </li>
           <li>
-            <a @click="() => toast.info('Coming soon', { title: 'Coming soon', position: 'topCenter' })">Tech Stack</a>
+            <RouterLink to="/tech-stacks">Tech Stacks</RouterLink>
           </li>
           <li>
             <a @click="() => toast.info('Coming soon', { title: 'Coming soon', position: 'topCenter' })">Projects</a>
