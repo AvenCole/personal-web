@@ -14,10 +14,10 @@
             <RouterLink to="/">Home</RouterLink>
           </li>
           <li>
-            <a @click="() => toast.info('Coming soon', { title: 'Coming soon', position: 'topCenter' })">Blogs</a>
+            <a @click="() => toast.info('Coming soon', { title: 'Coming soon', position: 'topCenter' })">Tech Stack</a>
           </li>
           <li>
-            <a @click="() => toast.info('Coming soon', { title: 'Coming soon', position: 'topCenter' })">Courses</a>
+            <a @click="() => toast.info('Coming soon', { title: 'Coming soon', position: 'topCenter' })">Projects</a>
           </li>
           <li>
             <RouterLink to="/contact">Contact</RouterLink>

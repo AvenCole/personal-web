@@ -43,19 +43,6 @@
     <DockIcon class="group flex flex-row items-center">
       <div class="tooltip tooltip-bottom">
         <div class="tooltip-content dark:bg-white">
-          <div class="animate-bounce dark:text-orange-400 -rotate-10 text-2xl font-black text-blue-600">
-            Honors
-          </div>
-        </div>
-        <Icon icon="material-symbols:workspace-premium"
-          class="text-blue-500 dark:text-blue-200 text-4xl opacity-70 group-hover:text-orange-500 transition-opacity"
-          @click="() => toast.info('Coming soon', { title: 'Coming soon' })" />
-      </div>
-    </DockIcon>
-    <DockSeparator />
-    <DockIcon class="group flex flex-row items-center">
-      <div class="tooltip tooltip-bottom">
-        <div class="tooltip-content dark:bg-white">
           <div class="animate-bounce dark:text-orange-400 -rotate-10 text-2xl font-black text-green-600">
             Contact
           </div>
