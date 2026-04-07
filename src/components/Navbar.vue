@@ -17,7 +17,7 @@
             <RouterLink to="/tech-stacks">Tech Stacks</RouterLink>
           </li>
           <li>
-            <a @click="() => toast.info('Coming soon', { title: 'Coming soon', position: 'topCenter' })">Projects</a>
+            <RouterLink to="/projects">Projects</RouterLink>
           </li>
           <li>
             <RouterLink to="/contact">Contact</RouterLink>
@@ -45,7 +45,4 @@
 import { RouterLink } from 'vue-router'
 import DockNav from '@/components/DockNav.vue'
 import ThemeSwap from '@/components/ThemeSwap.vue'
-import { useToast } from '@/hooks/useToast'
-
-const toast = useToast()
 </script>

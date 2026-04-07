@@ -1,5 +1,5 @@
 <template>
-  <div :class="cn('animate-grid relative block w-full', props.class)">
+  <div :class="cn('animate-grid relative block w-full', props.compact && 'animate-grid--compact', props.class)">
     <div
       class="animate-grid__surface relative grid w-full max-w-full items-stretch justify-center gap-3 sm:gap-4"
       :style="gridStyles"
@@ -25,13 +25,21 @@
         >
           <slot name="logo" :card="item" :index="index">
             <img
-              class="mx-auto h-10 w-10 object-contain sm:h-12 sm:w-12"
+              :class="cn(
+                'mx-auto object-contain',
+                props.compact ? 'h-8 w-8 sm:h-10 sm:w-10' : 'h-10 w-10 sm:h-12 sm:w-12',
+              )"
               :src="item.logo"
               :alt="item.title"
             />
           </slot>
           <span
-            class="text-center text-[10px] font-semibold uppercase tracking-[0.26em] text-slate-500 dark:text-slate-300 sm:text-[11px]"
+            :class="cn(
+              'text-center font-semibold uppercase text-slate-500 dark:text-slate-300',
+              props.compact
+                ? 'text-[9px] tracking-[0.2em] sm:text-[10px]'
+                : 'text-[10px] tracking-[0.26em] sm:text-[11px]',
+            )"
           >
             {{ item.title }}
           </span>
@@ -58,6 +66,7 @@ interface Props {
   perspective?: number
   rotateX?: number
   rotateY?: number
+  compact?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -66,6 +75,7 @@ const props = withDefaults(defineProps<Props>(), {
   perspective: 1100,
   rotateX: -4,
   rotateY: -12,
+  compact: false,
 })
 
 const activeIndex = ref<number | null>(null)
@@ -138,6 +148,12 @@ function cardClass(index: number) {
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
+.animate-grid--compact .animate-grid__card {
+  min-height: 6rem;
+  border-radius: 1.1rem;
+  padding: 0.8rem 0.45rem;
+}
+
 .animate-grid__card img {
   opacity: 0.84;
   filter: saturate(0.96);
@@ -195,6 +211,12 @@ function cardClass(index: number) {
 
   .animate-grid__card--active {
     transform: translate3d(-8px, -8px, 12px) scale(1.06);
+  }
+
+  .animate-grid--compact .animate-grid__card {
+    min-height: 5.5rem;
+    border-radius: 1rem;
+    padding: 0.7rem 0.35rem;
   }
 }
 </style>

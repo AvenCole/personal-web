@@ -1,11 +1,28 @@
 <template>
   <section
     class="relative rounded-4xl border border-slate-200/80 bg-white/72 p-5 shadow-[0_24px_80px_-32px_rgba(15,23,42,0.45)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/68 sm:p-8">
-    <AnimateGrid :cards="cards" class="mx-auto max-w-4xl" />
+    <div class="space-y-6 sm:space-y-8">
+      <header class="space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.28em] text-sky-600 dark:text-sky-300">
+          Tech Stacks and Tools Chain
+        </p>
+      </header>
+
+      <div
+        class="rounded-3xl border border-slate-200/80 bg-white/80 px-4 py-5 shadow-[0_18px_40px_-30px_rgba(15,23,42,0.35)] dark:border-white/10 dark:bg-slate-900/72 sm:px-6">
+        <div class="relative overflow-hidden" style="height: 80px">
+          <LogoLoop :logos="loopLogos" :speed="120" direction="left" :logoHeight="42" :gap="36" :pauseOnHover="true"
+            :scaleOnHover="true" :fadeOut="true" ariaLabel="Technology stacks logo loop" />
+        </div>
+      </div>
+
+      <AnimateGrid :cards="cards" :compact="true" class="mx-auto max-w-3xl" />
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import LogoLoop from '@/components/LogoLoop.vue'
 import AnimateGrid from '@/components/ui/animate-grid/AnimateGrid.vue'
 
 const cards = [
@@ -26,4 +43,10 @@ const cards = [
   { title: 'Solana', logo: '/imgs/solana.svg' },
   { title: 'Ethereum', logo: '/imgs/ethereum.svg' },
 ]
+
+const loopLogos = cards.map(({ title, logo }) => ({
+  src: logo,
+  alt: title,
+  title,
+}))
 </script>

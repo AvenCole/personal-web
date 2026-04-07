@@ -12,6 +12,11 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('../views/TechStacks.vue'),
   },
   {
+    path: '/projects',
+    name: 'Projects',
+    component: () => import('../views/Projects.vue'),
+  },
+  {
     path: '/contact',
     name: 'Contact',
     component: () => import('../views/Contact.vue'),

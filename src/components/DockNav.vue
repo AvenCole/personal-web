@@ -36,7 +36,7 @@
         </div>
         <Icon icon="material-symbols:folder-code"
           class="text-blue-500 dark:text-blue-200 text-4xl opacity-70 group-hover:text-orange-500 transition-opacity"
-          @click="() => toast.info('Coming soon', { title: 'Coming soon' })" />
+          @click="() => router.push('/projects')" />
       </div>
     </DockIcon>
     <DockSeparator />
@@ -58,11 +58,9 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { useRouter } from 'vue-router'
-import { useToast } from '@/hooks/useToast'
 import Dock from '@/components/ui/dock/Dock.vue'
 import DockIcon from '@/components/ui/dock/DockIcon.vue'
 import DockSeparator from '@/components/ui/dock/DockSeparator.vue'
 
 const router = useRouter()
-const toast = useToast()
 </script>
