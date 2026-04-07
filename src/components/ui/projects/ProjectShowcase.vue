@@ -14,12 +14,12 @@
         <div class="flex gap-8 text-sm">
           <div class="space-y-1">
             <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Focus</p>
-            <p class="font-semibold text-slate-800 dark:text-slate-200">Full-stack / AI</p>
+            <p class="font-semibold text-slate-800 dark:text-slate-200">Full-stack / AI / BlockChain</p>
           </div>
           <div class="w-px h-10 bg-slate-200 dark:bg-white/10"></div>
           <div class="space-y-1">
             <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Stack</p>
-            <p class="font-semibold text-slate-800 dark:text-slate-200">Rust / TS / Go</p>
+            <p class="font-semibold text-slate-800 dark:text-slate-200">Rust / TS</p>
           </div>
         </div>
       </div>
