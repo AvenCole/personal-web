@@ -129,7 +129,7 @@ const contacts: ContactItem[] = [
     value: '1587005702',
     icon: 'ri:qq-fill',
     tag: 'Chat',
-    qrSrc: '/contact/QQ.png',
+    qrSrc: '/contact/qq.png',
     qrAlt: 'QQ QR code',
     qrTip: 'Scan QQ QR',
     theme: {
