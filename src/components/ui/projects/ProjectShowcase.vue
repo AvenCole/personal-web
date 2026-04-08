@@ -27,7 +27,7 @@
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
       <a v-for="(project, idx) in projects" :key="project.name" ref="cardRefs" :href="project.href ?? undefined"
         :target="project.href ? '_blank' : undefined" :rel="project.href ? 'noreferrer noopener' : undefined"
-        class="hover-3d cursor-pointer" :class="[
+        class="project-card-link cursor-pointer" :class="[
           idx === 0 ? 'md:col-span-8' : '',
           idx === 1 ? 'md:col-span-4' : '',
           idx === 2 ? 'md:col-span-12' : '',
@@ -89,17 +89,6 @@
 
           </div>
         </div>
-
-
-        <!-- 8 empty divs needed for the 3D effect -->
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
       </a>
     </div>
   </section>
@@ -187,16 +176,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.hover-3d {
-  position: relative;
-  display: block;
+.project-card-link {
   perspective: 1200px;
-  transform-style: preserve-3d;
 }
 
 .project-card-surface {
-  position: relative;
-  z-index: 10;
   transform: translate3d(0, 0, 0);
   transform-origin: center center;
   backface-visibility: hidden;
@@ -210,109 +194,13 @@ onMounted(() => {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .hover-3d:hover .project-card-surface {
+  .project-card-link:hover .project-card-surface {
     transform: translate3d(0, -6px, 0) scale3d(1.008, 1.008, 1);
     box-shadow: 0 26px 72px -34px rgba(15, 23, 42, 0.34);
   }
 
-  :global(.dark) .hover-3d:hover .project-card-surface {
+  :global(.dark) .project-card-link:hover .project-card-surface {
     box-shadow: 0 28px 84px -38px rgba(2, 6, 23, 0.84);
-  }
-
-  .hover-3d>div:not(.project-card-surface) {
-    position: absolute;
-    z-index: 20;
-    pointer-events: auto;
-  }
-
-  .hover-3d>div:nth-of-type(2) {
-    top: 0;
-    left: 0;
-    width: 33.334%;
-    height: 33.334%;
-  }
-
-  .hover-3d>div:nth-of-type(3) {
-    top: 0;
-    left: 33.333%;
-    width: 33.334%;
-    height: 33.334%;
-  }
-
-  .hover-3d>div:nth-of-type(4) {
-    top: 0;
-    right: 0;
-    width: 33.334%;
-    height: 33.334%;
-  }
-
-  .hover-3d>div:nth-of-type(5) {
-    top: 33.333%;
-    left: 0;
-    width: 33.334%;
-    height: 33.334%;
-  }
-
-  .hover-3d>div:nth-of-type(6) {
-    top: 33.333%;
-    right: 0;
-    width: 33.334%;
-    height: 33.334%;
-  }
-
-  .hover-3d>div:nth-of-type(7) {
-    bottom: 0;
-    left: 0;
-    width: 33.334%;
-    height: 33.334%;
-  }
-
-  .hover-3d>div:nth-of-type(8) {
-    bottom: 0;
-    left: 33.333%;
-    width: 33.334%;
-    height: 33.334%;
-  }
-
-  .hover-3d>div:nth-of-type(9) {
-    bottom: 0;
-    right: 0;
-    width: 33.334%;
-    height: 33.334%;
-  }
-
-  @supports selector(:has(*)) {
-    .hover-3d:has(> div:nth-of-type(2):hover) .project-card-surface {
-      transform: translate3d(0, -8px, 0) rotateX(5deg) rotateY(-6deg) scale3d(1.01, 1.01, 1);
-    }
-
-    .hover-3d:has(> div:nth-of-type(3):hover) .project-card-surface {
-      transform: translate3d(0, -8px, 0) rotateX(5deg) rotateY(0deg) scale3d(1.01, 1.01, 1);
-    }
-
-    .hover-3d:has(> div:nth-of-type(4):hover) .project-card-surface {
-      transform: translate3d(0, -8px, 0) rotateX(5deg) rotateY(6deg) scale3d(1.01, 1.01, 1);
-    }
-
-    .hover-3d:has(> div:nth-of-type(5):hover) .project-card-surface {
-      transform: translate3d(0, -6px, 0) rotateX(0deg) rotateY(-6deg) scale3d(1.01, 1.01, 1);
-    }
-
-    .hover-3d:has(> div:nth-of-type(6):hover) .project-card-surface {
-      transform: translate3d(0, -6px, 0) rotateX(0deg) rotateY(6deg) scale3d(1.01, 1.01, 1);
-    }
-
-    .hover-3d:has(> div:nth-of-type(7):hover) .project-card-surface {
-      transform: translate3d(0, -4px, 0) rotateX(-4deg) rotateY(-6deg) scale3d(1.01, 1.01, 1);
-    }
-
-    .hover-3d:has(> div:nth-of-type(8):hover) .project-card-surface {
-      transform: translate3d(0, -4px, 0) rotateX(-4deg) rotateY(0deg) scale3d(1.01, 1.01, 1);
-    }
-
-    .hover-3d:has(> div:nth-of-type(9):hover) .project-card-surface {
-      transform: translate3d(0, -4px, 0) rotateX(-4deg) rotateY(6deg) scale3d(1.01, 1.01, 1);
-    }
   }
 }
 
