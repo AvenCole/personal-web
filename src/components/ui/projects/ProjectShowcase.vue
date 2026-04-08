@@ -27,13 +27,13 @@
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
       <a v-for="(project, idx) in projects" :key="project.name" ref="cardRefs" :href="project.href ?? undefined"
         :target="project.href ? '_blank' : undefined" :rel="project.href ? 'noreferrer noopener' : undefined"
-        class="hover-3d cursor-pointer" :class="[
+        class="project-card-link cursor-pointer" :class="[
           idx === 0 ? 'md:col-span-8' : '',
           idx === 1 ? 'md:col-span-4' : '',
           idx === 2 ? 'md:col-span-12' : '',
         ]">
         <div
-          class="card h-full border border-slate-200/60 dark:border-white/10 shadow-sm backdrop-blur-3xl overflow-hidden rounded-[2.5rem]">
+          class="project-card-surface card h-full overflow-hidden rounded-[2.5rem] border border-slate-200/70 bg-white/72 shadow-[0_18px_50px_-28px_rgba(15,23,42,0.28)] backdrop-blur-md dark:border-white/10 dark:bg-slate-950/58 dark:shadow-[0_20px_60px_-30px_rgba(2,6,23,0.75)]">
           <div class="card-body p-8 md:p-10 flex flex-col h-full">
 
             <div class="flex items-center justify-between mb-8">
@@ -91,14 +91,6 @@
         </div>
 
 
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
       </a>
     </div>
   </section>
@@ -179,7 +171,44 @@ onMounted(() => {
     duration: 1.0,
     stagger: 0.12,
     ease: 'power4.out',
+    force3D: true,
     clearProps: 'all'
   })
 })
 </script>
+
+<style scoped>
+.project-card-link {
+  perspective: 1200px;
+}
+
+.project-card-surface {
+  transform: translate3d(0, 0, 0);
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform;
+  contain: layout paint style;
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 260ms ease,
+    border-color 260ms ease,
+    background-color 260ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card-link:hover .project-card-surface {
+    transform: translate3d(0, -8px, 0) scale3d(1.01, 1.01, 1);
+    box-shadow: 0 26px 72px -34px rgba(15, 23, 42, 0.34);
+  }
+
+  :global(.dark) .project-card-link:hover .project-card-surface {
+    box-shadow: 0 28px 84px -38px rgba(2, 6, 23, 0.84);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card-surface {
+    transition: none;
+  }
+}
+</style>
